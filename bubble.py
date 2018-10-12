@@ -345,24 +345,3 @@ class bubble:
 
 
 
-
-#b=bubble('shixiang','MULTIFILES.zip')
-
-#with open(r'E:\BIM\06_Forge_平台\myforge\Tem\MainFest','r') as f :
-#    c=f.read()
-#    cc=json.loads(c)
-
-
-#ll=b.parseManifest(cc)
-#for i in ll:
-#    print(i)
-#c=b.getManifest()
-#print(c)
-#ll=b.getDerivatives(c)
-#for i in ll:
-#    print(ll)
-#c=b.getManifest()
-#print(c)
-#ll=b.Download('E:\\BIM\\06_Forge_平台\\myforge\\static\\New')
-
-
