@@ -1,11 +1,9 @@
 from Base.Model_Derivative import *
 import json
-import base64
 import os
-import zlib
-from io import StringIO,BytesIO
+from io import BytesIO
 import zipfile
-import traceback
+
 import gzip
 
 

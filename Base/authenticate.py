@@ -17,7 +17,8 @@ class two_legged_access(Base):
 
         self.url = 'https://developer.api.autodesk.com/authentication/v1/authenticate'
         self.filepath = os.getcwd()
-        self.filename = self.filepath + '/Tem/tem.txt'
+        self.filename = self.filepath + '/Tem/Tem.txt'
+
 
     def get_access_token(self):
         return  'Bearer '+self.GetItem('access_token')
@@ -28,7 +29,6 @@ class two_legged_access(Base):
         return self.GetItem('expires_in')
 
     def save_access_token(self):
-
         with open(self.filename,'w') as f:
             f.writelines(str(self.get_access_token()))
 
@@ -41,7 +41,8 @@ class two_legged_access(Base):
 
 class authenticate:
     def __init__(self):
-        self.two_legged_access=two_legged_access()
+        self.two_legged_access = two_legged_access()
+
     @property
     def get_access_token(self):
         self.two_legged_access.save_access_token()

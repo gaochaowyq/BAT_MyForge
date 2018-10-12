@@ -11,6 +11,7 @@ class GET_formats (Base):
 class POST_job(Base):
     def __init__(self,bucketkey,filename,ManiFialName=-1):
         super(POST_job,self).__init__()
+        self.Reference = "job"
         self.auth = authenticate.authenticate().get_access_token
         self.urn = get_object_from_bucket(bucketkey).get_urn(filename)
         self.ManiFileName=ManiFialName
@@ -22,7 +23,6 @@ class POST_job(Base):
             self.o_data = {
                "input": {
                  "urn": self.urn.decode('ascii')
-
                },
                "output": {
                  "formats": [
@@ -57,8 +57,6 @@ class POST_job(Base):
                 ]
             }
         }
-        #covert to json data
-        print(self.o_data)
 
         self.data =json.dumps(self.o_data)
         self.method = 'post'
@@ -139,7 +137,7 @@ class GET_manifest_derivativeurn(Base):
         #self.de_urn=urn
         print(self.urn)
 
-        self.auth = authenticate.authenticate().get_access_token
+        self.auth = authenticate.authenticate().get_access_token_fromfile()
         self.header = {'Authorization': self.auth,"Content-Type": "application/json;charset=utf-8"}
         self.method = 'get'
         self.url = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}'.format(urn=self.urn.decode('utf-8'),derivativeUrn=quote(derivativeUrn))
